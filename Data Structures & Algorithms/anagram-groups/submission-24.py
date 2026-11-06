@@ -1,0 +1,23 @@
+class Solution:
+    def getCountPattern(self, s: str):
+        # count = {}
+        # for i in s:
+        #     count[i] = 1 + count.get(i, 0)
+        # res = ''
+        # keys = list(count.keys())
+        # keys.sort()
+        # for i in keys:
+        #     res += f'{count[i]}{i}'
+        
+        return count
+
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = defaultdict(list)
+        for s in strs:
+            count = [0] * 26
+            for i in s:
+                count[ord(i) - ord('a')] += 1
+            res[tuple(count)].append(s)
+        return list(res.values())
+    
+        
